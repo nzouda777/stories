@@ -16,6 +16,8 @@ stories.forEach((story) => {
     const imageSrc = story.querySelector('video').src;
     const username = story.querySelector('.username').textContent;
     popupVideo.src = imageSrc;
+    popupVideo.setAttribute("autoplay", "true")
+    popupVideo.setAttribute("controls", "false")
     video = story.querySelector('video')
     video.play()
     arrowLeft.style.visibility = "hidden"
