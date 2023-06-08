@@ -7,7 +7,15 @@
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer et Edge */
   }
-  
+  .try{
+    /* background-color: #e52e71; */
+    height: 500px;
+    position: fixed;
+    width: 500px;
+    background: url("./12 Track 12.mp4");
+    object-fit: fill;
+    display: block;
+  }
   .stories::-webkit-scrollbar {
     display: none; /* Chrome et Safari */
   }
