@@ -23,9 +23,6 @@ stories.forEach((story) => {
       popupVideo.setAttribute("controls", "true")
       video = story.querySelector('video')
       popupVideo.play()
-      arrowLeft.style.visibility = "hidden"
-      
-      arrowRight.style.visibility = "hidden"
       popupUsername.textContent = username;
       popup.style.visibility = 'visible';
     });
