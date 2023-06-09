@@ -7,15 +7,7 @@
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer et Edge */
   }
-  .try{
-    /* background-color: #e52e71; */
-    height: 500px;
-    position: fixed;
-    width: 500px;
-    background: url("./12 Track 12.mp4");
-    object-fit: fill;
-    display: block;
-  }
+  
   .stories::-webkit-scrollbar {
     display: none; /* Chrome et Safari */
   }
@@ -104,6 +96,9 @@
   #popup-video{
     height: 100%;
   }
+  #safari-video{
+    height: 100%;
+  }
   .username {
     margin-top: 5px;
     font-size: 12px;
@@ -158,7 +153,15 @@
         width: 100vw;
     }
     #popup-video{
-        object-fit: fill;
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0px;
+    }
+    #safari-video{
+        object-fit: cover;
         width: 100vw;
         height: 100vh;
         position: fixed;
