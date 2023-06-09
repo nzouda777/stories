@@ -15,7 +15,10 @@ const arrowRight = document.querySelector('.arrow-right');
 
 
 if (! navigator. userAgent. includes('Chrome') && navigator. userAgent. includes('Safari')) {
-stories.forEach((story) => {
+
+    arrowLeft.style.visibility = "visible"
+    arrowRight.style.visibility = "visible"
+    stories.forEach((story) => {
     story.addEventListener('click', () => {
       const imageSrc = story.querySelector('video').src;
       const username = story.querySelector('.username').textContent;
@@ -31,8 +34,6 @@ stories.forEach((story) => {
   closeButton.addEventListener('click', () => {
     popup.style.visibility = 'hidden';
     popupVideo.pause()
-    arrowLeft.style.visibility = "visible"
-    arrowRight.style.visibility = "visible"
   });
   arrowLeft.addEventListener('click', () => {
       storiesContainer.scrollBy({
