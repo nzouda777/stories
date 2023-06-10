@@ -21,42 +21,6 @@
     cursor: pointer;
   }
   
-  .arrow {
-    position: absolute;
-    top: 6%;
-    transform: translateY(-50%);
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 20px;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-  }
-  
-  .arrow:hover {
-    opacity: 0.8;
-  }
-  
-  .arrow-left {
-    left: 2;
-    /* border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%; */
-  }
-  
-  .arrow-right {
-    right: 0;
-    /* border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%; */
-  }
-  
-  .arrow-icon {
-    display: inline-block;
-  }
   
 
 .stories {

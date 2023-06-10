@@ -16,18 +16,22 @@ const arrowRight = document.querySelector('.arrow-right');
 
 if (! navigator. userAgent. includes('Chrome') && navigator. userAgent. includes('Safari')) {
 
-    arrowLeft.style.visibility = "visible"
-    arrowRight.style.visibility = "visible"
+
     stories.forEach((story) => {
     story.addEventListener('click', () => {
       if (story.querySelector('video')) {
         video = story.querySelector('video')
         const videoSrc = story.querySelector('video').src;
         popupVideo.src = videoSrc;
+        document.querySelector(".status-bar").style.display = "none"
+        popupVideo.style.display = "block"
+        popupImage.style.display = "none"
         popupVideo.play()
         
         }else if(story.querySelector('img')){
           
+          popupVideo.style.display = "none"
+          popupImage.style.display = "block"
           document.querySelector(".status-bar").style.display = "block"
           const imageSrc = story.querySelector('img').src
           popupImage.src = imageSrc
@@ -51,88 +55,41 @@ if (! navigator. userAgent. includes('Chrome') && navigator. userAgent. includes
   closeButton.addEventListener('click', () => {
     popup.style.visibility = 'hidden';
     popupVideo.pause()
-  });
-  arrowLeft.addEventListener('click', () => {
-      storiesContainer.scrollBy({
-        left: -200,
-        behavior: 'smooth'
-      });
-    });
-    arrowRight.addEventListener('click', () => {
-      storiesContainer.scrollBy({
-        left: 200,
-        behavior: 'smooth'
-      });
-    });
-    
-    storiesContainer.addEventListener('scroll', () => {
-      arrowLeft.style.opacity = storiesContainer.scrollLeft > 0 ? 1 : 0;
-      arrowRight.style.opacity =
-        storiesContainer.scrollLeft + storiesContainer.offsetWidth <
-        storiesContainer.scrollWidth
-          ? 1
-          : 0;
-    });
-    
+  }); 
 
 } else {
     stories.forEach((story) => {
       // document.querySelector(".status-bar").style.display = "none !important"
-        story.addEventListener('click', () => {
-          
-          if (story.querySelector('video')) {
-          video = story.querySelector('video')
-          const videoSrc = story.querySelector('video').src;
-          popupVideo.src = videoSrc;
-          popupVideo.play()
-          
-          }else if(story.querySelector('img')){
-            
-            document.querySelector(".status-bar").style.display = "block"
-            const imageSrc = story.querySelector('img').src
-            popupImage.src = imageSrc
-            loader.style.animation = 'loadBar 5s linear'
-            
-          setTimeout(() => {
-            popup.style.display = 'none';
-          }, 5000);
-          }
-          const username = story.querySelector('.username').textContent;
-          arrowLeft.style.visibility = "hidden"
-          
-          arrowRight.style.visibility = "hidden"
-          popupUsername.textContent = username;
-          popup.style.display = 'flex';
-        });
-      });
-      
-      closeButton.addEventListener('click', () => {
-        popup.style.display = 'none';
-        window.location.reload()
-        arrowLeft.style.visibility = "visible"
-        arrowRight.style.visibility = "visible"
-      });
-      arrowLeft.addEventListener('click', () => {
-          storiesContainer.scrollBy({
-            left: -200,
-            behavior: 'smooth'
-          });
-        });
+      story.addEventListener('click', () => {
         
-        arrowRight.addEventListener('click', () => {
-          storiesContainer.scrollBy({
-            left: 200,
-            behavior: 'smooth'
-          });
-        });
+        if (story.querySelector('video')) {
+        video = story.querySelector('video')
+        const videoSrc = story.querySelector('video').src;
+        popupVideo.src = videoSrc;
+        popupVideo.play()
+        document.querySelector(".status-bar").style.display = "none"
+        popupVideo.style.display = "block"
+        popupImage.style.display = "none"
+        }else if(story.querySelector('img')){
+        popupVideo.style.display = "none"
+        popupImage.style.display = "block"
+          document.querySelector(".status-bar").style.display = "block"
+          const imageSrc = story.querySelector('img').src
+          popupImage.src = imageSrc
+          loader.style.animation = 'loadBar 5s linear'
+          
+        setTimeout(() => {
+          popup.style.display = 'none';
+        }, 5000);
+        }
+        const username = story.querySelector('.username').textContent;
         
-        storiesContainer.addEventListener('scroll', () => {
-          arrowLeft.style.opacity = storiesContainer.scrollLeft > 0 ? 1 : 0;
-          arrowRight.style.opacity =
-            storiesContainer.scrollLeft + storiesContainer.offsetWidth <
-            storiesContainer.scrollWidth
-              ? 1
-              : 0;
-        });
-      
+        popupUsername.textContent = username;
+        popup.style.display = 'flex';
+      });
+    });
+    
+    closeButton.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });    
 }
