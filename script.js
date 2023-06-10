@@ -20,12 +20,29 @@ if (! navigator. userAgent. includes('Chrome') && navigator. userAgent. includes
     arrowRight.style.visibility = "visible"
     stories.forEach((story) => {
     story.addEventListener('click', () => {
-      const videoSrc = story.querySelector('video').src;
+      if (story.querySelector('video')) {
+        video = story.querySelector('video')
+        const videoSrc = story.querySelector('video').src;
+        popupVideo.src = videoSrc;
+        popupVideo.play()
+        
+        }else if(story.querySelector('img')){
+          
+          document.querySelector(".status-bar").style.display = "block"
+          const imageSrc = story.querySelector('img').src
+          popupImage.src = imageSrc
+          loader.style.animation = 'loadBar 5s linear'
+          
+        setTimeout(() => {
+          popup.style.display = 'none';
+        }, 5000);
+        }
+      // const videoSrc = story.querySelector('video').src;
       const username = story.querySelector('.username').textContent;
-      popupVideo.src = videoSrc;
-      popupVideo.setAttribute("controls", "true")
-      video = story.querySelector('video')
-      popupVideo.play()
+      // popupVideo.src = videoSrc;
+      // popupVideo.setAttribute("controls", "true")
+      // video = story.querySelector('video')
+      // popupVideo.play()
       popupUsername.textContent = username;
       popup.style.visibility = 'visible';
     });
@@ -41,7 +58,6 @@ if (! navigator. userAgent. includes('Chrome') && navigator. userAgent. includes
         behavior: 'smooth'
       });
     });
-    
     arrowRight.addEventListener('click', () => {
       storiesContainer.scrollBy({
         left: 200,
