@@ -105,6 +105,41 @@
   #popup-video{
     height: 100%;
   }
+  .status-bar{
+    display: none;
+    position: absolute;
+    top: 1%;
+    width: 100%;
+    /* padding: 0 30px; */
+    height: 15px;
+  }
+  .bar{
+    position: relative;
+    background: #cccccc75;
+    width: 97%;
+    height: 4px;
+    border-radius: 100px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .status-bar .bar .loader{
+    background: #fff;
+    width: 10%;
+    height: 4px;
+    /* animation: loadBar 5s linear ; */
+  }
+  @keyframes loadBar {
+    0%{
+      width: 0%
+    }
+    100%{
+      width: 100%;
+    }
+  }
+  #popup-image{
+    height: 100%;
+    object-fit: contain;
+  }
   #safari-video{
     height: 100%;
   }

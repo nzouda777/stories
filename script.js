@@ -4,8 +4,8 @@ const popupSafari = document.getElementById('safari-video');
 const popupVideo = document.getElementById('popup-video');
 const popupUsername = document.getElementById('popup-username');
 const closeButton = document.getElementById('close-button');
-
-
+const popupImage = document.querySelector("#popup-image")
+const loader = document.querySelector(".loader")
 const storiesContainer = document.querySelector('.stories');
 const arrowLeft = document.querySelector('.arrow-left');
 const arrowRight = document.querySelector('.arrow-right');
@@ -20,9 +20,9 @@ if (! navigator. userAgent. includes('Chrome') && navigator. userAgent. includes
     arrowRight.style.visibility = "visible"
     stories.forEach((story) => {
     story.addEventListener('click', () => {
-      const imageSrc = story.querySelector('video').src;
+      const videoSrc = story.querySelector('video').src;
       const username = story.querySelector('.username').textContent;
-      popupVideo.src = imageSrc;
+      popupVideo.src = videoSrc;
       popupVideo.setAttribute("controls", "true")
       video = story.querySelector('video')
       popupVideo.play()
@@ -61,12 +61,27 @@ if (! navigator. userAgent. includes('Chrome') && navigator. userAgent. includes
 
 } else {
     stories.forEach((story) => {
+      // document.querySelector(".status-bar").style.display = "none !important"
         story.addEventListener('click', () => {
-          const imageSrc = story.querySelector('video').src;
-          const username = story.querySelector('.username').textContent;
-          popupVideo.src = imageSrc;
+          
+          if (story.querySelector('video')) {
           video = story.querySelector('video')
+          const videoSrc = story.querySelector('video').src;
+          popupVideo.src = videoSrc;
           popupVideo.play()
+          
+          }else if(story.querySelector('img')){
+            
+            document.querySelector(".status-bar").style.display = "block"
+            const imageSrc = story.querySelector('img').src
+            popupImage.src = imageSrc
+            loader.style.animation = 'loadBar 5s linear'
+            
+          setTimeout(() => {
+            popup.style.display = 'none';
+          }, 5000);
+          }
+          const username = story.querySelector('.username').textContent;
           arrowLeft.style.visibility = "hidden"
           
           arrowRight.style.visibility = "hidden"
