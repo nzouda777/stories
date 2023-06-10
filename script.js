@@ -14,15 +14,15 @@ const arrowRight = document.querySelector('.arrow-right');
 
 
 
-if (! navigator. userAgent. includes('Chrome') && navigator. userAgent. includes('Safari')) {
+ if (! navigator. userAgent. includes('Chrome') && navigator. userAgent. includes('Safari')) {
 
 
     stories.forEach((story) => {
-    story.addEventListener('click', () => {
+     story.addEventListener('click', async () => {
       if (story.querySelector('video')) {
         video = story.querySelector('video')
         const videoSrc = story.querySelector('video').src;
-        popupVideo.src = videoSrc;
+         popupVideo.src = videoSrc;
         document.querySelector(".status-bar").style.display = "none"
         popupVideo.style.display = "block"
         popupImage.style.display = "none"
